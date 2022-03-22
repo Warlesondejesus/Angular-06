@@ -1,0 +1,204 @@
+<!-- reactive forms -->
+
+<div class="card">
+
+  <mat-card class="cardt" >
+    <mat-card-header >
+      <mat-card-title>
+        Formulário de cadastro
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content >
+      <form action="#" (ngSubmit)="submit()" [formGroup]="personalData "id="form1">
+        <div class="grupo">
+          <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input type="text" matInput placeholder="Seu nome..." formControlName="name">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['name'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['name'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Sobrenome</mat-label>
+            <input type="text" matInput placeholder="Seu Sobrenome..." formControlName="lastname">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['lastname'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['lastname'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>         
+        </div>
+  
+        <div class="grupo">
+          <mat-form-field appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input type="text" matInput placeholder="Seu CPF..." formControlName="cpf">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['cpf'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['cpf'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Telefone</mat-label>
+            <input type="text" matInput placeholder="Seu Telefone.." formControlName="phone">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['phone'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['phone'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+        </div>
+        <mat-divider></mat-divider> <br>
+        <div class="grupo" >
+          <mat-form-field appearance="fill">
+            <mat-label>Rua</mat-label>
+            <input type="text" matInput placeholder="Digite sua rua..." formControlName="street">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['street'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['street'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Numero</mat-label>
+            <input type="text" matInput placeholder="digite o numero nº..." formControlName="number">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['number'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['number'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="grupo" >
+          <mat-form-field appearance="fill">
+            <mat-label>Bairro</mat-label>
+            <input type="text" matInput placeholder="Digite seu bairro..." formControlName="district">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['district'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['district'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input type="text" matInput placeholder="Digite sua cidade..." formControlName="city">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['city'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['city'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="grupo" >
+          <mat-form-field appearance="fill">
+            <mat-label>Estado</mat-label>
+            <input type="text" matInput placeholder="Seu Estado..." formControlName="state">
+            <mat-error>
+              <span *ngIf="personalData.controls['state'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['state'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>País</mat-label>
+            <input type="text" matInput placeholder="Seu País..." formControlName="country">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['country'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['country'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+        </div>
+        <mat-divider></mat-divider> <br>
+        <div class="grupo" >
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput placeholder="Seu Username..." formControlName="username">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['username'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['username'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input type="text" matInput placeholder="email@email.com..." formControlName="email">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['email'].getError('required')">
+                  Campo obigatório</span>
+                  <span *ngIf="personalData.controls['email'].getError('email')">
+                    Isto não é um email</span>
+          </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="grupo">
+          <mat-form-field appearance="fill">
+            <mat-label>Senha1</mat-label>
+            <input type="text" matInput placeholder="Digite sua senha.." formControlName="password">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['password'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['password'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>senha2</mat-label>
+            <input type="text" matInput placeholder="Confirme sua senha..." formControlName="password">
+
+            <mat-error>
+              <span *ngIf="personalData.controls['password'].getError('required')">
+                  Campo obigatório</span>
+              <span *ngIf="personalData.controls['password'].getError('minlength')">
+                  Digite no mínimo 3 caracteres</span>
+          </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div >
+          <button mat-raised-button type="submit" color="accent" class="btn"
+          [disabled]="personalData.invalid"
+          >Cadastrar</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+

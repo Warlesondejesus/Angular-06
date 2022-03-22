@@ -1,0 +1,41 @@
+.card {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+ /*  text-align: center;  */
+  /* padding: 10px; */
+  border-radius: 6px ;
+
+    
+}
+
+#form1 {
+  width: 450px;
+/*   height: 90vh; */
+ /*  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  align-items: center; */ 
+}
+
+.cardt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.grupo {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
+    width: 100%;
+}
+
+.btn {
+  width: 100%;
+}
+
+
