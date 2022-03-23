@@ -1,12 +1,14 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import {  InptsComponent } from '../inpts/inpts.component'
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
-export class FormularioComponent  {
+export class FormularioComponent  implements OnInit {
 
   personalData: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -41,6 +43,31 @@ submit(): void {
   console.log(`Username = ${this.personalData.controls['username'].value}`);
   console.log(`Email = ${this.personalData.controls['email'].value}`);
   console.log(`Password = ${this.personalData.controls['password'].value}`);
+
+}
+
+constructor(
+  private dialog: MatDialog
+) { }
+
+ngOnInit(): void {
+}
+
+showDialog(): void {
+  let ref = this.dialog.open(InptsComponent)
+
+  ref.componentInstance.name = this.personalData.controls['name'].value
+  ref.componentInstance.lastname = this.personalData.controls['lastname'].value
+  ref.componentInstance.cpf = this.personalData.controls['cpf'].value
+  ref.componentInstance.phone = this.personalData.controls['phone'].value
+  ref.componentInstance.street = this.personalData.controls['street'].value
+  ref.componentInstance.number = this.personalData.controls['number'].value
+  ref.componentInstance.district = this.personalData.controls['district'].value
+  ref.componentInstance.city = this.personalData.controls['city'].value
+  ref.componentInstance.state = this.personalData.controls['state'].value
+  ref.componentInstance.country = this.personalData.controls['country'].value
+  ref.componentInstance.username = this.personalData.controls['username'].value
+  ref.componentInstance.email = this.personalData.controls['email'].value
 
 }
 }

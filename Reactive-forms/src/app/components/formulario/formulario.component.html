@@ -194,7 +194,7 @@
   
         <div >
           <button mat-raised-button type="submit" color="accent" class="btn"
-          [disabled]="personalData.invalid"
+          [disabled]="personalData.invalid" (click)="showDialog()"
           >Cadastrar</button>
         </div>
       </form>
