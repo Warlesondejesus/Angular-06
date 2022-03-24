@@ -83,7 +83,7 @@
               <span *ngIf="personalData.controls['number'].getError('required')">
                   Campo obigatório</span>
               <span *ngIf="personalData.controls['number'].getError('minlength')">
-                  Digite no mínimo 3 caracteres</span>
+                  Digite no mínimo 1 caracteres</span>
           </mat-error>
           </mat-form-field>
         </div>
@@ -122,7 +122,7 @@
               <span *ngIf="personalData.controls['state'].getError('required')">
                   Campo obigatório</span>
               <span *ngIf="personalData.controls['state'].getError('minlength')">
-                  Digite no mínimo 3 caracteres</span>
+                  Digite no mínimo 2 caracteres</span>
           </mat-error>
 
           </mat-form-field>
@@ -149,7 +149,7 @@
               <span *ngIf="personalData.controls['username'].getError('required')">
                   Campo obigatório</span>
               <span *ngIf="personalData.controls['username'].getError('minlength')">
-                  Digite no mínimo 3 caracteres</span>
+                  Digite no mínimo 5 caracteres</span>
           </mat-error>
           </mat-form-field>
   
@@ -168,27 +168,30 @@
   
         <div class="grupo">
           <mat-form-field appearance="fill">
-            <mat-label>Senha1</mat-label>
-            <input type="text" matInput placeholder="Digite sua senha.." formControlName="password">
+            <mat-label>Senha</mat-label>
+            <input type="password" matInput placeholder="Digite sua senha.." formControlName="password1">
 
             <mat-error>
-              <span *ngIf="personalData.controls['password'].getError('required')">
+              <span *ngIf="personalData.controls['password1'].getError('required')">
                   Campo obigatório</span>
-              <span *ngIf="personalData.controls['password'].getError('minlength')">
-                  Digite no mínimo 3 caracteres</span>
+              <span *ngIf="personalData.controls['password1'].getError('minlength')">
+                  Digite no mínimo 6 caracteres</span>
           </mat-error>
           </mat-form-field>
   
           <mat-form-field appearance="fill">
-            <mat-label>senha2</mat-label>
-            <input type="text" matInput placeholder="Confirme sua senha..." formControlName="password">
+            <mat-label>Confirme sua senha</mat-label>
+            <input type="password" matInput placeholder="Confirme sua senha..." formControlName="password2" pattern="{{personalData.value.password1}}">
 
             <mat-error>
-              <span *ngIf="personalData.controls['password'].getError('required')">
+              <span *ngIf="personalData.controls['password2'].getError('required')">
                   Campo obigatório</span>
-              <span *ngIf="personalData.controls['password'].getError('minlength')">
-                  Digite no mínimo 3 caracteres</span>
+              <span *ngIf="personalData.controls['password2'].getError('minlength')">
+                  Digite no mínimo 6 caracteres</span>
+                  <span *ngIf="personalData.controls['password2'].value != personalData.controls['password1'].value" >
+                    Senha diferente.....</span>
           </mat-error>
+         
           </mat-form-field>
         </div>
   

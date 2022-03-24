@@ -55,7 +55,7 @@
           <mat-form-field appearance="outline">
             <mat-label>Telefone</mat-label>
             <input type="text" matInput placeholder="Seu Telefone..." [(ngModel)]="phone"
-            name="phone" autocomplete="off" required minlength="3" #inputPhone="ngModel" >
+            name="phone" autocomplete="off" required minlength="9" #inputPhone="ngModel" >
 
             <mat-error *ngIf="inputPhone.invalid">
               <span *ngIf="inputPhone.errors?.['required']">
@@ -98,26 +98,26 @@
           <mat-form-field appearance="outline">
             <mat-label>Bairro</mat-label>
             <input type="text" matInput placeholder="Seu Bairro..." [(ngModel)]="district"
-            name="district" autocomplete="off" required minlength="3" #inputDistrict="ngModel" >
+            name="district" autocomplete="off" required minlength="2" #inputDistrict="ngModel" >
 
             <mat-error *ngIf="inputDistrict.invalid">
               <span *ngIf="inputDistrict.errors?.['required']">
                   Campo obigatório</span>
               <span *ngIf="inputDistrict.errors?.['minlength']">
-                  Digite no mínimo 3 caracteres</span>
+                  Digite no mínimo 2 caracteres</span>
           </mat-error>
           </mat-form-field>
   
           <mat-form-field appearance="outline">
             <mat-label>Cidade</mat-label>
             <input type="text" matInput placeholder="Sua Cidade..." [(ngModel)]="city"
-            name="city" autocomplete="off" required minlength="3" #inputCity="ngModel" >
+            name="city" autocomplete="off" required minlength="2" #inputCity="ngModel" >
 
             <mat-error *ngIf="inputCity.invalid">
               <span *ngIf="inputName.errors?.['required']">
                   Campo obigatório</span>
               <span *ngIf="inputCity.errors?.['minlength']">
-                  Digite no mínimo 3 caracteres</span>
+                  Digite no mínimo 2 caracteres</span>
           </mat-error>
           </mat-form-field>
         </div>
@@ -125,14 +125,14 @@
         <div class="grupo" >
           <mat-form-field appearance="outline">
             <mat-label>Estado</mat-label>
-            <input type="text" matInput placeholder="Seu nome..." [(ngModel)]="state"
-            name="state" autocomplete="off" required minlength="3" #inputState="ngModel" >
+            <input type="text" matInput placeholder="Seu Estado..." [(ngModel)]="state"
+            name="state" autocomplete="off" required minlength="2" #inputState="ngModel" >
 
             <mat-error *ngIf="inputState.invalid">
               <span *ngIf="inputState.errors?.['required']">
                   Campo obigatório</span>
               <span *ngIf="inputState.errors?.['minlength']">
-                  Digite no mínimo 3 caracteres</span>
+                  Digite no mínimo 2 caracteres</span>
           </mat-error>
 
           </mat-form-field>
@@ -156,14 +156,14 @@
         <div class="grupo" >
           <mat-form-field appearance="outline">
             <mat-label>Username</mat-label>
-            <input type="text" matInput placeholder="Seu Username..." [(ngModel)]="name"
-            name="name" autocomplete="off" required minlength="3" #inputName="ngModel" >
+            <input type="text" matInput placeholder="Seu Username..." [(ngModel)]="username"
+            name="username" autocomplete="off" required minlength="5" #inputUsername="ngModel" >
 
-            <mat-error *ngIf="inputName.invalid">
-              <span *ngIf="inputName.errors?.['required']">
+            <mat-error *ngIf="inputUsername.invalid">
+              <span *ngIf="inputUsername.errors?.['required']">
                   Campo obigatório</span>
               <span *ngIf="inputName.errors?.['minlength']">
-                  Digite no mínimo 3 caracteres</span>
+                  Digite no mínimo 5 caracteres</span>
           </mat-error>
           </mat-form-field>
   
@@ -188,35 +188,40 @@
   
         <div class="grupo">
           <mat-form-field appearance="outline">
-            <mat-label>Senha1</mat-label>
-            <input type="text" matInput placeholder="Digite sua Senha..." [(ngModel)]="password1"
-            name="password1" autocomplete="off" required minlength="3" #inputPassword1="ngModel" >
-
+            <mat-label>Senha</mat-label>
+            <input type="password" matInput placeholder="Digite sua Senha..." [(ngModel)]="password1"
+            name="password1" autocomplete="off" required minlength="6" #inputPassword1="ngModel" >
+            
             <mat-error *ngIf="inputPassword1.invalid">
               <span *ngIf="inputPassword1.errors?.['required']">
                   Campo obigatório</span>
               <span *ngIf="inputPassword1.errors?.['minlength']">
-                  Digite no mínimo 3 caracteres</span>
+                  Digite no mínimo 6 caracteres</span>
+                  
           </mat-error>
           </mat-form-field>
   
           <mat-form-field appearance="outline">
-            <mat-label>senha2</mat-label>
-            <input type="text" matInput placeholder="Confirme sua senha..." [(ngModel)]="password2"
-            name="password2" autocomplete="off" required minlength="3" #inputPassword2="ngModel" >
-
+            <mat-label>Confirme sua senha</mat-label>
+            <input type="password" matInput placeholder="Confirme sua senha..." [(ngModel)]="password2"
+            name="password2" autocomplete="off" required minlength="6" #inputPassword2="ngModel" >
+            
             <mat-error *ngIf="inputPassword2.invalid">
               <span *ngIf="inputPassword2.errors?.['required']">
                   Campo obigatório</span>
               <span *ngIf="inputPassword2.errors?.['minlength']">
-                  Digite no mínimo 3 caracteres</span>
+                  Digite no mínimo 6 caracteres</span>
+                    <!--  <span *ngIf="inputPassword1.value != inputPassword2.value">
+            Senha diferente.....</span> --- não funciona dentro do mat-error-->
           </mat-error>
+       
           </mat-form-field>
+          
         </div>
   
         <div >
           <button mat-raised-button type="submit" color="accent" class="btn"
-          [disabled]="form.invalid"
+          [disabled]="form.invalid || checkSenha(inputPassword1.value, inputPassword2.value)" (click)="showDialog()"
           >Cadastrar</button>
         </div>
       </form>

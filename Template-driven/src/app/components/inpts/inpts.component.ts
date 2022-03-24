@@ -7,7 +7,18 @@ import { Component } from '@angular/core';
 })
 export class InptsComponent  {
 
-  
+  name: string = ''
+  lastname: string = ''
+  cpf: string = ''
+  phone: string = ''
+  street: string = ''
+  number: string = ''
+  district: string = ''
+  city: string = ''
+  state: string = ''
+  country: string = ''
+  username: string = ''
+  email: string = ''
 
   
 }

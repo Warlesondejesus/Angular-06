@@ -13,17 +13,18 @@ export class FormularioComponent  implements OnInit {
   personalData: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    cpf: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    phone: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    street: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    number: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    cpf: new FormControl('', [Validators.required, Validators.minLength(11)]),
+    phone: new FormControl('', [Validators.required, Validators.minLength(9)]),
+    street: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    number: new FormControl('', [Validators.required, Validators.minLength(1)]),
     district: new FormControl('', [Validators.required, Validators.minLength(3)]),
     city: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    state: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    state: new FormControl('', [Validators.required, Validators.minLength(2)]),
     country: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(5)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    password1: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    password2: new FormControl('', [Validators.required, Validators.minLength(6)]),
  
 
 })
@@ -42,7 +43,8 @@ submit(): void {
   console.log(`Country = ${this.personalData.controls['country'].value}`);
   console.log(`Username = ${this.personalData.controls['username'].value}`);
   console.log(`Email = ${this.personalData.controls['email'].value}`);
-  console.log(`Password = ${this.personalData.controls['password'].value}`);
+  console.log(`Password1 = ${this.personalData.controls['password1'].value}`);
+  console.log(`Password2 = ${this.personalData.controls['password2'].value}`);
 
 }
 
@@ -68,6 +70,8 @@ showDialog(): void {
   ref.componentInstance.country = this.personalData.controls['country'].value
   ref.componentInstance.username = this.personalData.controls['username'].value
   ref.componentInstance.email = this.personalData.controls['email'].value
+
+  this.personalData.reset();
 
 }
 }
